@@ -10,7 +10,7 @@
 namespace bot {
 
     require_once "request.php";
-    require_once "resposne.php";
+    require_once "response.php";
 
     class bot {
         private $ch;
