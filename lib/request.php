@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * request class for YAcURLWrapper
+ * @author vijayant
+ * @usage create request objects that will be then passed to the bot to be executed
+ * @TODO add cookie support (although it can still work by setting headers manually)
+ **/
+
 namespace bot {
 
     class request {
@@ -45,11 +52,15 @@ namespace bot {
             $this->options[CURLOPT_POST] = true;
             $this->options[CURLOPT_POSTFIELDS] = http_build_query($data);
             if(isset($url))
-                setURL($url);
+                $this->setURL($url);
         }
 
-        public function setHeaders(array $headers){
+        public function setHeader(array $headers){
             $this->options[CURLOPT_HEADER] = $headers;
+        }
+
+        public function getRequest(){
+            return $this->options;
         }
 
         public function debug(){
